@@ -10,6 +10,7 @@ import OnboardingQuiz from './components/OnboardingQuiz';
 import PersonaReveal from './components/PersonaReveal';
 import Dashboard from './components/Dashboard';
 import DailyCheckIn from './components/DailyCheckIn';
+import InnerWeatherMVP from './components/InnerWeatherMVP';
 import ContentLibrary from './components/ContentLibrary';
 import SelfWorthToolkit from './components/SelfWorthToolkit';
 import WellnessInsights from './components/WellnessInsights';
@@ -63,6 +64,8 @@ const AppContent: React.FC = () => {
 
   const renderCurrentSection = () => {
     switch (currentSection) {
+      case 'inner-weather':
+        return <InnerWeatherMVP />;
       case 'dashboard':
         return <Dashboard onNavigate={handleNavigate} />;
       case 'checkin':
@@ -116,6 +119,7 @@ const App: React.FC = () => {
           <div className="App">
             <Routes>
               <Route path="/" element={<AppContent />} />
+              <Route path="/mvp" element={<InnerWeatherMVP />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
             <Toaster />
